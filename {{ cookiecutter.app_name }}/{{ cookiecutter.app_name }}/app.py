@@ -26,7 +26,7 @@ class {{ app_class_name }}(toga.App):
 
 
 def main():
-    return {{ app_class_name }}('{{ cookiecutter.formal_name|lower|replace("\'", "") }}', '{{ cookiecutter.bundle }}.{{ cookiecutter.app_name }}')
+    return {{ app_class_name }}('{{ cookiecutter.formal_name|lower|replace("\'", "") }}', '{{ cookiecutter.bundle |lower|replace("\'", "")}}.{{ cookiecutter.app_name }}')
 {% elif cookiecutter.gui_framework == 'PySide2' %}import sys
 from PySide2 import QtWidgets
 
