@@ -1,8 +1,9 @@
 """
 {{ cookiecutter.description }}
 """
-{% set app_class_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','').replace("'", "") -%}
-{% set formal_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','').replace("'", "\'") -%}
+{% set app_class_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','') -%}
+{% set formal.name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','').replace("'", "\'") -%}
+
 {% if cookiecutter.gui_framework == 'Toga' %}import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
@@ -13,7 +14,6 @@ class {{ app_class_name }}(toga.App):
     def startup(self):
         """
         Construct and show the Toga application.
-
         Usually, you would add your application to a main content box.
         We then create a main window (with a name matching the app), and
         show the main window.
@@ -26,7 +26,7 @@ class {{ app_class_name }}(toga.App):
 
 
 def main():
-    return {{ app_class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle)}}.{{ cookiecutter.app_name}}')
+    return {{ app_class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle }}.{{ cookiecutter.app_name }}')
 {% elif cookiecutter.gui_framework == 'PySide2' %}import sys
 from PySide2 import QtWidgets
 
