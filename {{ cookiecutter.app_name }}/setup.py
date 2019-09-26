@@ -4,7 +4,7 @@ import re
 from setuptools import setup, find_packages
 import sys
 
-with io.open('./{{ cookiecutter.app_name }}/__init__.py', encoding='utf8') as version_file:
+with io.open('./{{ cookiecutter.app_name|lower|replace("\'", "") }}/__init__.py', encoding='utf8') as version_file:
     version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]", version_file.read(), re.M)
     if version_match:
         version = version_match.group(1)
@@ -17,7 +17,7 @@ with io.open('README.rst', encoding='utf8') as readme:
 
 
 setup(
-    name='{{ cookiecutter.app_name }}',
+    name='{{ cookiecutter.app_name|lower|replace("\'", "") }}',
     version=version,
     description='{{ cookiecutter.description }}',
     long_description=long_description,
@@ -41,7 +41,7 @@ setup(
     ],
     options={
         'app': {
-            'formal_name': '{{ cookiecutter.formal_name }}',
+            'formal_name': '{{ cookiecutter.formal_name|lower|replace("\'", "") }}',
             'bundle': '{{ cookiecutter.bundle }}'
         },
 
