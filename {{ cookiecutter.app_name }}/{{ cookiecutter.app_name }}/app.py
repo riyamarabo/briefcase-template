@@ -2,7 +2,7 @@
 {{ cookiecutter.description }}
 """
 {% set app_class_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','').replace("'", "") -%}
-{% set cookiecutter.formal_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','').replace("'", "\'") -%}
+{% set formal_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','').replace("'", "\'") -%}
 {% if cookiecutter.gui_framework == 'Toga' %}import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW
@@ -26,7 +26,7 @@ class {{ app_class_name }}(toga.App):
 
 
 def main():
-    return {{ app_class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle |lower|replace("\'", "")}}.{{ cookiecutter.app_name|lower|replace("\'", "") }}')
+    return {{ app_class_name }}('{{ cookiecutter.formal_name }}', '{{ cookiecutter.bundle)}}.{{ cookiecutter.app_name}}')
 {% elif cookiecutter.gui_framework == 'PySide2' %}import sys
 from PySide2 import QtWidgets
 
@@ -37,7 +37,7 @@ class {{ app_class_name }}(QtWidgets.QMainWindow):
         self.init_ui()
 
     def init_ui(self):
-        self.setWindowTitle('{{ cookiecutter.app_name |lower|replace("\'", "") }}')
+        self.setWindowTitle('{{ cookiecutter.app_name }}')
         self.show()
 
 def main():
