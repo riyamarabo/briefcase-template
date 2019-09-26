@@ -1,7 +1,7 @@
 """
 {{ cookiecutter.description }}
 """
-{% set app_class_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','') -%}
+{% set app_class_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','').replace("'", "\'") -%}
 {% set formal_name = cookiecutter.formal_name.title().replace(' ','').replace('-','').replace('!','').replace('.','').replace(',','').replace("'", "\'") -%}
 
 {% if cookiecutter.gui_framework == 'Toga' %}import toga
